@@ -23,7 +23,13 @@
 
     <color name="grad1">#4196E3</color>
 
+    <color name="theme_color_one">#fe4101</color>
 
+    <color name="bg_button_color">#fe4101</color>
+
+
+
+    <color name="app_bar">#E3430E</color>
 
 
 </resources>

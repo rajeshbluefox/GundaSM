@@ -1,7 +1,10 @@
 package realapps.live.gundasupermarket.homeModule
 
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.Window
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
@@ -39,6 +42,9 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         setContentView(binding.root)
+
+        val window = window
+        setStatusBarIconColor(window, true) // Set status bar icons to light
 
         initViewModels()
         observers()
@@ -245,5 +251,19 @@ class HomeActivity : AppCompatActivity() {
     }
 
 
+
+    // Inside your activity or fragment code
+    fun setStatusBarIconColor(window: Window, isLight: Boolean) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val decor = window.decorView
+            if (isLight) {
+                // For light status bar icons
+                decor.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            } else {
+                // For dark status bar icons
+                decor.systemUiVisibility = 0
+            }
+        }
+    }
 
 }

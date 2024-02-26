@@ -25,10 +25,10 @@ class MainActivity : AppCompatActivity() {
     private fun checkLoginStatusandNavigate() {
         Handler(Looper.getMainLooper()).postDelayed({
 
-            if (!LoginData.getUserLoginStatus(this)) {
+            if (LoginData.getUserLoginStatus(this)) {
                 CallIntent.goToHomeActivity(this, true, this)
             } else {
-//                CallIntent.goToLoginActivityandKillMe(this, true, this)
+                CallIntent.goToLoginActivity(this, true, this)
             }
 
         }, 2000)

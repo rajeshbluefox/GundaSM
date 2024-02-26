@@ -6,6 +6,7 @@ import android.content.Intent
 import realapps.live.gundasupermarket.MainActivity
 import realapps.live.gundasupermarket.homeModule.AddProductActivity
 import realapps.live.gundasupermarket.homeModule.HomeActivity
+import realapps.live.gundasupermarket.loginModule.LoginActivity
 import realapps.live.gundasupermarket.stockRequestModule.StockRequestsActivity
 
 object CallIntent {
@@ -23,6 +24,12 @@ object CallIntent {
 
     fun goToStockRequestActivity(context: Context, killMe: Boolean, activity: Activity) {
         val intent = Intent(context, StockRequestsActivity::class.java)
+        context.startActivity(intent)
+        if (killMe) activity.finish()
+    }
+
+    fun goToLoginActivity(context: Context, killMe: Boolean, activity: Activity) {
+        val intent = Intent(context, LoginActivity::class.java)
         context.startActivity(intent)
         if (killMe) activity.finish()
     }

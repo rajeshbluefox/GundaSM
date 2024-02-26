@@ -15,7 +15,7 @@
         android:id="@+id/titleBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/button_bg_color"
+        android:background="@color/app_bar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -121,10 +121,11 @@
                 android:singleLine="true"
                 android:background="@null"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btScan"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/dp_42"
+                android:background="@color/bg_button_color"
                 android:text="Scan" />
 
 
@@ -295,16 +296,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btAddPhoto"/>
 
-
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btAdd"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/dp_200"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_36"
+        android:layout_marginHorizontal="@dimen/dp_12"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/button_one"
         android:text="Add Product"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/productImage"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+<!--    <Button-->
+<!--        android:id="@+id/btAdd"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="@dimen/dp_36"-->
+<!--        android:text="Add Product"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/productImage"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"/>-->
 
     <ProgressBar
         android:id="@+id/progressBar"

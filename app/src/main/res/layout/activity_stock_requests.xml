@@ -14,7 +14,7 @@
         android:id="@+id/titleBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/button_bg_color"
+        android:background="@color/app_bar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -84,7 +84,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:background="@color/button_bg_color"
+        android:background="@color/app_bar"
         android:textColor="@color/black"
         app:tabGravity="fill"
         app:tabMode="fixed"

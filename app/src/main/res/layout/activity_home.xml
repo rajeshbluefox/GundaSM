@@ -20,7 +20,7 @@
                 android:id="@+id/titleBarLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/button_bg_color">
+                android:background="@color/app_bar">
 
                 <ImageView
                     android:id="@+id/profile"
@@ -146,8 +146,34 @@
                 android:layout_marginTop="@dimen/dp_12"
                 android:paddingHorizontal="@dimen/dp_12" />
 
+
+            <ImageView
+                android:id="@+id/bt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_add_product"
+                android:layout_above="@id/btLogout"
+                android:layout_alignParentEnd="true"
+                android:clickable="true"
+                android:focusable="auto"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="8dp"/>
+
+            <ImageView
+                android:id="@+id/btLogout"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@drawable/logout"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:clickable="true"
+                android:focusable="auto"
+                android:layout_marginEnd="14dp"
+                android:layout_marginBottom="12dp"/>
+
             <LinearLayout
                 android:id="@+id/btLayout"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -161,14 +187,7 @@
                     android:layout_weight="1"
                     android:text="Add Product" />
 
-                <Button
-                    android:id="@+id/btSubmitOrder"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_weight="1"
-                    android:text="Submit Order"
-                    android:visibility="gone" />
+
 
             </LinearLayout>
 
