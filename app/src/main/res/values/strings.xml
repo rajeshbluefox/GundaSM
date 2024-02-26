@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Gunda</string>
+
+
+    <string name="baserurl_user_images">http://dnews.bluefoxsystems.biz/Views/Images/UserImages/</string>
+
+</resources>
