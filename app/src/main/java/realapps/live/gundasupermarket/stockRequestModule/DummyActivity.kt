@@ -130,13 +130,6 @@ class DummyActivity : AppCompatActivity() {
     {
         val galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        cameraIntent.putExtra("android.intent.extras.CAMERA_FACING", 1) // Rear camera
-        cameraIntent.putExtra("android.intent.extras.CAMERA_FACING", 0) // Front camera
-        cameraIntent.putExtra("crop", "true")
-        cameraIntent.putExtra("aspectX", 1)
-        cameraIntent.putExtra("aspectY", 1)
-        cameraIntent.putExtra("outputX", 300) // Adjust the output size as needed
-        cameraIntent.putExtra("outputY", 300)
 
         val chooser = Intent.createChooser(galleryIntent, "Pick Image")
         chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, arrayOf(cameraIntent))
@@ -149,41 +142,47 @@ class DummyActivity : AppCompatActivity() {
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
 
-//            val selectedImage: Uri = data.data!!
-//
-//            selectedImage.let { uri ->
-//                val file = File(uri.path)
-//                val requestFile: RequestBody = RequestBody.create("multipart/form-data".toMediaTypeOrNull(), file)
-//                val imagePart = MultipartBody.Part.createFormData("image", file.name, requestFile)
-//
-//                postImage(imagePart)
-//            }
 
-            binding.productImage.setImageBitmap(data.extras?.get("data") as Bitmap)
-            UtilFunctions.showToast(applicationContext,"Ares")
-
-//            val selectedImage: Uri = data.data!!
-//            imagePath = getRealPathFromUri(selectedImage)
-
-            UtilFunctions.showToast(applicationContext,"Ares")
-
-//            val data: Intent? = data.data
-            val imageBitmap = data.extras?.get("data") as Bitmap?
-
-            imageBitmap?.let { it ->
-                val imageFile = createImageFileFromBitmap(it)
-                val imagePart = imageFile?.let { createImageMultipart(it) }
-
-                if (imagePart != null) {
-                    UtilFunctions.showToast(applicationContext,"Mtp")
-
-                    postImage(imagePart)
-                    // Now you can use 'imagePart' to send as a multipart request using Retrofit
-                    // Example: uploadImage(imagePart)
-                }
+            // Check if the data is null or not
+            if (data.data != null) {
+                // Gallery intent
+                val selectedImageUri: Uri = data.data!!
+                // Handle the selected image from the gallery
+                handleGalleryImage(selectedImageUri)
+            } else {
+                // Camera intent
+                val imageBitmap = data.extras?.get("data") as Bitmap?
+                // Handle the captured image from the camera
+                handleCameraImage(imageBitmap)
             }
 
 
+
+        }
+    }
+
+    private fun handleGalleryImage(selectedImageUri: Uri) {
+        // Handle the selected image from the gallery
+    }
+
+    private fun handleCameraImage(imageBitmap: Bitmap?) {
+        // Handle the captured image from the camera
+
+        binding.productImage.setImageBitmap(imageBitmap)
+        UtilFunctions.showToast(applicationContext,"Ares")
+
+
+//        val imageBitmap = data.extras?.get("data") as Bitmap?
+
+        imageBitmap?.let { it ->
+            val imageFile = createImageFileFromBitmap(it)
+            val imagePart = imageFile?.let { createImageMultipart(it) }
+
+            if (imagePart != null) {
+                UtilFunctions.showToast(applicationContext,"Mtp")
+
+                postImage(imagePart)
+            }
         }
     }
 
